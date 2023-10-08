@@ -123,11 +123,6 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-// Root route
-app.get('/', (req, res) => {
-  res.send('Welcome to the homepage!');
-});
-
 // Custom error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -139,8 +134,13 @@ app.get('/favicon.ico', (req, res) => {
   res.status(204).end();
 });
 
+// Define a route for the root URL
+app.get('/', (req, res) => {
+  res.send('Welcome to the homepage!');
+});
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
